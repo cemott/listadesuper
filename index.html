@@ -1,0 +1,78 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	.destacado{
+		background-color: yellow;
+		font-weight: bold;
+	}
+	li{
+		padding:5px;
+	}
+	</style>
+</head>
+<body>
+	<select id="cantidad">
+		<option value="">Cantidad</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	</select>
+	<select id="unidades">
+		<option value="">Seleccionar</option>
+		<option value="Litros">Litros</option>
+		<option value="Docenas">Docenas</option>
+		<option value="Kilos">Kilos</option>
+		<option value="Gramos">Gramos</option>
+		
+	</select>
+	<input type="text" placeholder="Ingrese el producto" id="producto">
+	<button onclick="comprar()">+</button>
+	<ul id="ul"></ul>
+</body>
+<script type="text/javascript">
+	
+	function comprar(){
+		var cant=document.getElementById("cantidad").value;
+		var unid=document.getElementById("unidades").value
+		var prod=document.getElementById("producto").value;
+		var lista=document.createElement("li");
+		var boton=document.createElement("button");
+		var textoBoton=document.createTextNode("Eliminar");
+		var contenido=document.createTextNode(cant+" "+unid+" de "+prod+"  ")
+
+		boton.appendChild(textoBoton)
+		lista.appendChild(contenido)
+		lista.appendChild(boton)
+		lista.setAttribute("onclick","destacar (this)")
+		prod=document.getElementById("producto").value="";
+		ul.appendChild(lista)
+
+		boton.setAttribute("onclick","eliminar(this)")
+	} 
+
+	function destacar(paraDestacar){
+		estado=paraDestacar.className;
+		if(estado=="destacado"){
+			paraDestacar.className=""
+		} else {
+			paraDestacar.className="destacado"
+		}
+	}
+
+	function eliminar(paraEliminar){
+		paraEliminar.parentNode.parentNode.removeChild(paraEliminar.parentNode);
+	}
+
+	
+</script>
+</html>
